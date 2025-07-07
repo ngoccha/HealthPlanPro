@@ -9,13 +9,16 @@ import UIKit
 
 class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var logs: [Log] = []
+    var logs: [Log] = [Log(pulse: "--", hrv: "--")]
 
     @IBAction func logHeartButton(_ sender: UIButton) {
         let infoHeartVC = InfoHeartVC()
         
         infoHeartVC.updateLog = { [weak self] newLog in
             guard let self = self else { return }
+            if self.logs.count == 1 && self.logs.first?.pulse == "--" && self.logs.first?.hrv == "--" {
+                self.logs.removeAll()
+            }
             self.logs.append(newLog)
             self.logTableView.reloadData()
             self.hiddenTrackDailyView()
