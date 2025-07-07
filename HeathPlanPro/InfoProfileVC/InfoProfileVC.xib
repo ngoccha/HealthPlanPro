@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,6 +15,7 @@
                 <outlet property="addButtonOutlet" destination="g8e-6I-Kyv" id="ERb-h6-60t"/>
                 <outlet property="firstNameTextField" destination="PNF-0S-Hce" id="hLb-mL-hkm"/>
                 <outlet property="firstNameTextFieldView" destination="yzo-Wr-6uh" id="nbV-3V-iZ3"/>
+                <outlet property="genderSegment" destination="0kk-gs-Pva" id="Zpk-Mw-j5q"/>
                 <outlet property="heightTextField" destination="dij-Of-gbg" id="yG7-wd-JSJ"/>
                 <outlet property="heightTextFieldView" destination="eOi-AO-XMq" id="jOc-Sh-Wmy"/>
                 <outlet property="lastNameTextField" destination="QxW-ZR-k3T" id="zHH-nM-8kL"/>
@@ -29,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Tfr-i4-vvY">
-                    <rect key="frame" x="16" y="83" width="361" height="270"/>
+                    <rect key="frame" x="16" y="142" width="361" height="270"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WWc-Vw-v9h">
                             <rect key="frame" x="0.0" y="0.0" width="361" height="84.333333333333329"/>
@@ -44,7 +46,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzo-Wr-6uh">
-                                            <rect key="frame" x="0.0" y="32.333333333333329" width="174.66666666666666" height="52"/>
+                                            <rect key="frame" x="0.0" y="32.333333333333343" width="174.66666666666666" height="52"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNF-0S-Hce">
                                                     <rect key="frame" x="12" y="0.0" width="162.66666666666666" height="52"/>
@@ -75,7 +77,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vE-UQ-imq">
-                                            <rect key="frame" x="0.0" y="32.333333333333329" width="174.33333333333334" height="52"/>
+                                            <rect key="frame" x="0.0" y="32.333333333333343" width="174.33333333333334" height="52"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QxW-ZR-k3T">
                                                     <rect key="frame" x="12" y="0.0" width="162.33333333333334" height="52"/>
@@ -108,7 +110,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0kk-gs-Pva">
-                                    <rect key="frame" x="0.0" y="28.333333333333314" width="361" height="32"/>
+                                    <rect key="frame" x="0.0" y="28.333333333333343" width="361" height="32"/>
                                     <segments>
                                         <segment title="Male"/>
                                         <segment title="Female"/>
@@ -186,7 +188,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8e-6I-Kyv">
-                    <rect key="frame" x="16" y="746" width="361" height="56"/>
+                    <rect key="frame" x="16" y="712" width="361" height="56"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="LnJ-TT-PD2"/>
                     </constraints>

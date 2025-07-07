@@ -95,9 +95,18 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         section1[indexPath.row].isSelected.toggle()
 
         if section1[indexPath.row].isSelected {
+            goToProfile()
+        }
+    }
+    
+    @objc func goToProfile() {
+        if ProfileManager.shared.hasProfile() {
+            let profileVC = ProfileVC()
+            navigationController?.pushViewController(profileVC, animated: true)
+        } else {
             let infoProfileVC = InfoProfileVC()
             navigationController?.pushViewController(infoProfileVC, animated: true)
         }
     }
-
+    
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CBA1AA02E1B72C8004D503F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA1A9F2E1B72C8004D503F /* Profile.swift */; };
+		2CBA1AA22E1B8018004D503F /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA1AA12E1B8018004D503F /* ProfileManager.swift */; };
 		8463F75E2E1829B200DF7EED /* PlanOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463F75C2E1829B200DF7EED /* PlanOptionVC.swift */; };
 		8463F75F2E1829B200DF7EED /* PlanOptionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463F75D2E1829B200DF7EED /* PlanOptionVC.xib */; };
 		8463F7632E182B7A00DF7EED /* PlanOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463F7612E182B7A00DF7EED /* PlanOptionCell.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2CBA1A9F2E1B72C8004D503F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		2CBA1AA12E1B8018004D503F /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
 		8463F75C2E1829B200DF7EED /* PlanOptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionVC.swift; sourceTree = "<group>"; };
 		8463F75D2E1829B200DF7EED /* PlanOptionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanOptionVC.xib; sourceTree = "<group>"; };
 		8463F7612E182B7A00DF7EED /* PlanOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionCell.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				84B8EE162E17EA45004F8D1B /* Option.swift */,
 				84CDAC622E197EAD008A7073 /* Log.swift */,
 				84CDAC682E1A854B008A7073 /* Setting.swift */,
+				2CBA1A9F2E1B72C8004D503F /* Profile.swift */,
+				2CBA1AA12E1B8018004D503F /* ProfileManager.swift */,
 				84CDAC732E1AA10B008A7073 /* ProfileVC */,
 				84CDAC6E2E1A9640008A7073 /* InfoProfileVC */,
 				8463F7732E19421300DF7EED /* SettingVC */,
@@ -320,6 +326,7 @@
 				84CDAC712E1AA105008A7073 /* ProfileVC.swift in Sources */,
 				84CDAC662E1A7B9A008A7073 /* SettingCell.swift in Sources */,
 				84B8EDF52E16C7DD004F8D1B /* ViewController.swift in Sources */,
+				2CBA1AA22E1B8018004D503F /* ProfileManager.swift in Sources */,
 				8463F7712E19420D00DF7EED /* SettingVC.swift in Sources */,
 				8463F7672E18328500DF7EED /* LogVC.swift in Sources */,
 				84EE175E2E195C9000E7738C /* InfoHeartVC.swift in Sources */,
@@ -327,6 +334,7 @@
 				84CDAC602E19775E008A7073 /* LogCell.swift in Sources */,
 				84CDAC632E197EAD008A7073 /* Log.swift in Sources */,
 				84CDAC692E1A854B008A7073 /* Setting.swift in Sources */,
+				2CBA1AA02E1B72C8004D503F /* Profile.swift in Sources */,
 				84B8EE1F2E17FCA7004F8D1B /* GoalOptionVC.swift in Sources */,
 				84B8EE172E17EA45004F8D1B /* Option.swift in Sources */,
 				84CDAC6C2E1A963A008A7073 /* InfoProfileVC.swift in Sources */,

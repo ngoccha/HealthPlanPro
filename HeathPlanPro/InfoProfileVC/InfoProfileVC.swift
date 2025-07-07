@@ -9,6 +9,15 @@ import UIKit
 
 class InfoProfileVC: UIViewController {
     
+    var newProfile: Profile?
+//    var heightCmtoM: Double = 0.0
+//    var BMIValue: Double = 0.0
+    var firstNameResult: String = ""
+    var lastNameResult: String = ""
+    var bmiResult: String = ""
+    var weightResult: String = ""
+    var heightResult: String = ""
+    var genderResult: String = ""
     
     @IBOutlet weak var firstNameTextField: UITextField!
     
@@ -26,16 +35,42 @@ class InfoProfileVC: UIViewController {
     
     @IBOutlet weak var heightTextFieldView: UIView!
     
+    @IBOutlet weak var genderSegment: UISegmentedControl!
+    
     @IBOutlet weak var addButtonOutlet: UIButton!
     
     @IBAction func addButton(_ sender: UIButton) {
+        
+        let heightCmtoM = Double(heightTextField.text!)! / 100
+        let BMIValue = Double(weightTextField.text!)! / pow(heightCmtoM, 2)
+        
+        firstNameResult = firstNameTextField.text ?? ""
+        lastNameResult = lastNameTextField.text ?? ""
+        let bmiResult: String = String(format: "%.2f", BMIValue)
+        weightResult = weightTextField.text ?? ""
+        heightResult = heightTextField.text ?? ""
+        genderResult = genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!
+        
+        newProfile = Profile(firstName: firstNameResult, lastName: lastNameResult, bmi: bmiResult, weight: weightResult, height: heightResult, gender: genderResult)
+        
+        
+        ProfileManager.shared.saveProfile(newProfile!)
+
+//        onChangeResult?(newProfile!)
+        
         let profileVC = ProfileVC()
+//        navigationController?.popViewController(animated: true)
         navigationController?.pushViewController(profileVC, animated: true)
     }
+    
+    
+    var onChangeResult: ((Profile) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadCurrentProfile()
+        
         title = "Information"
         
         firstNameTextFieldView.layer.cornerRadius = 16
@@ -63,6 +98,23 @@ class InfoProfileVC: UIViewController {
         heightTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
+   func loadCurrentProfile() {
+            if let currentProfile = ProfileManager.shared.loadProfile() {
+                firstNameTextField.text = currentProfile.firstName
+                lastNameTextField.text = currentProfile.lastName
+                weightTextField.text = currentProfile.weight
+                heightTextField.text = currentProfile.height
+    
+                let gender = currentProfile.gender.lowercased()
+                if gender == "male" {
+                    genderSegment.selectedSegmentIndex = 0
+                } else if gender == "female" {
+                    genderSegment.selectedSegmentIndex = 1
+                }
+                textFieldDidChange() // Kích hoạt kiểm tra enable button
+            }
+        }
+    
     @objc func textFieldDidChange() {
         let firstNameEmpty = firstNameTextField.text?.isEmpty ?? true
         let lastNameEmpty = lastNameTextField.text?.isEmpty ?? true
