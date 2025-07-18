@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LogVC" customModule="HeathPlanPro" customModuleProvider="target">
+            <connections>
+                <outlet property="logTableView" destination="cv0-jL-bTJ" id="ksx-Gf-dPw"/>
+                <outlet property="trackDailyView" destination="5LT-de-DET" id="dyg-PB-l1b"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Guru" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFf-Xn-iwE">
+                    <rect key="frame" x="16" y="123.99999999999999" width="174.33333333333334" height="38.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
+                    <color key="textColor" name="neutral1 1"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASv-Zy-2WO">
+                    <rect key="frame" x="56" y="227.33333333333337" width="281" height="255"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="heartlarge"/>
+                    <connections>
+                        <action selector="logHeartButton:" destination="-1" eventType="touchUpInside" id="JVI-1X-vHB"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-jL-bTJ">
+                    <rect key="frame" x="16" y="551.33333333333337" width="361" height="198.66666666666663"/>
+                    <color key="backgroundColor" name="background"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5LT-de-DET">
+                    <rect key="frame" x="16" y="646.33333333333337" width="361" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Click heart icon to log your data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01P-35-Z8K">
+                            <rect key="frame" x="16" y="47" width="205.33333333333334" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" name="neutral 2"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heartletter" translatesAutoresizingMaskIntoConstraints="NO" id="5vK-4r-us1">
+                            <rect key="frame" x="19.666666666666664" y="18.666666666666629" width="31" height="30"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWL-Qb-VW5">
+                            <rect key="frame" x="54.666666666666671" y="16" width="84.000000000000014" height="27"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="5vK-4r-us1" firstAttribute="top" secondItem="5LT-de-DET" secondAttribute="top" constant="18.800000000000001" id="1nX-Zc-GdT"/>
+                        <constraint firstItem="VWL-Qb-VW5" firstAttribute="top" secondItem="5LT-de-DET" secondAttribute="top" constant="16" id="56g-YN-meY"/>
+                        <constraint firstItem="VWL-Qb-VW5" firstAttribute="leading" secondItem="5vK-4r-us1" secondAttribute="trailing" constant="4" id="928-nh-B7O"/>
+                        <constraint firstItem="01P-35-Z8K" firstAttribute="leading" secondItem="5LT-de-DET" secondAttribute="leading" constant="16" id="Ihe-t5-vxp"/>
+                        <constraint firstAttribute="height" constant="80" id="OQU-5k-zfP"/>
+                        <constraint firstAttribute="bottom" secondItem="01P-35-Z8K" secondAttribute="bottom" constant="16" id="TI0-df-nCl"/>
+                        <constraint firstItem="5vK-4r-us1" firstAttribute="leading" secondItem="5LT-de-DET" secondAttribute="leading" constant="19.5" id="WVe-pN-Ajj"/>
+                        <constraint firstItem="01P-35-Z8K" firstAttribute="top" secondItem="VWL-Qb-VW5" secondAttribute="bottom" constant="4" id="aZ2-rK-HVd"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="background"/>
+            <constraints>
+                <constraint firstItem="ASv-Zy-2WO" firstAttribute="top" secondItem="YFf-Xn-iwE" secondAttribute="bottom" constant="65" id="2vs-H5-8Ew"/>
+                <constraint firstItem="cv0-jL-bTJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4hU-XY-6sS"/>
+                <constraint firstAttribute="trailing" secondItem="5LT-de-DET" secondAttribute="trailing" constant="16" id="4nK-yB-AMG"/>
+                <constraint firstItem="cv0-jL-bTJ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="80k-NT-5kp"/>
+                <constraint firstItem="ASv-Zy-2WO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Tbc-Gx-LGF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cv0-jL-bTJ" secondAttribute="bottom" constant="34" id="VkA-xc-1R5"/>
+                <constraint firstItem="cv0-jL-bTJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WXQ-f0-MwS"/>
+                <constraint firstItem="YFf-Xn-iwE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ZG4-KN-wr0"/>
+                <constraint firstItem="YFf-Xn-iwE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="6" id="ZIf-JP-iw0"/>
+                <constraint firstItem="cv0-jL-bTJ" firstAttribute="top" secondItem="ASv-Zy-2WO" secondAttribute="bottom" constant="69" id="gch-FD-Kpo"/>
+                <constraint firstAttribute="trailing" secondItem="5LT-de-DET" secondAttribute="trailing" constant="16" id="iS0-Mo-xh7"/>
+                <constraint firstItem="5LT-de-DET" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lrh-9p-B7f"/>
+                <constraint firstAttribute="trailing" secondItem="ASv-Zy-2WO" secondAttribute="trailing" constant="56" id="pgO-Uo-ClM"/>
+                <constraint firstItem="ASv-Zy-2WO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="56" id="sqJ-1W-ZB1"/>
+                <constraint firstItem="5LT-de-DET" firstAttribute="top" secondItem="ASv-Zy-2WO" secondAttribute="bottom" constant="164" id="wID-aj-ssV"/>
+            </constraints>
+            <point key="canvasLocation" x="-132.06106870229007" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="heartlarge" width="263" height="241"/>
+        <image name="heartletter" width="31" height="30"/>
+        <namedColor name="background">
+            <color red="0.95686274509803926" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="neutral 2">
+            <color red="0.34901960784313724" green="0.38039215686274508" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="neutral1 1">
+            <color red="0.17647058823529413" green="0.19215686274509805" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
