@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class ProfileManager {
     static let shared = ProfileManager()
     private let profileKey = "savedProfile"
