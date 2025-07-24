@@ -74,7 +74,7 @@ class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func hiddenTrackDailyView() {
         if self.logs.count == 1 && self.logs.first?.pulse == "--" && self.logs.first?.hrv == "--" {
             self.logs.removeAll()
-            trackDailyView.isHidden = false
+            trackDailyView.isHidden = true
         }
         
     }

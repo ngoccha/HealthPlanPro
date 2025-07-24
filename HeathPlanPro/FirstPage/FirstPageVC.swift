@@ -13,9 +13,9 @@ class FirstPageVC: UIViewController {
     
     @IBAction func continueButton() {
         
-        let issueOptionVC = IssueOptionVC()
+        let introVC = IntroVC()
         
-        navigationController?.pushViewController(issueOptionVC, animated: true)
+        navigationController?.pushViewController(introVC, animated: true)
     }
     
     override func viewDidLoad() {

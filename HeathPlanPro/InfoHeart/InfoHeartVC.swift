@@ -9,14 +9,12 @@ import UIKit
 
 class InfoHeartVC: UIViewController {
     
+    @IBOutlet weak var pulseCustomView: CustomTextFieldView!
+    @IBOutlet weak var hrvCustomView: CustomTextFieldView!
     
-    @IBOutlet weak var pulseTextFieldView: UIView!
-    @IBOutlet weak var hrvTextFieldView: UIView!
-    @IBOutlet weak var pulseTextField: UITextField!
-    @IBOutlet weak var hrvTextField: UITextField!
     @IBOutlet weak var addButtonOutlet: UIButton!
     @IBAction func addButton() {
-        let newLog = Log(pulse: pulseTextField.text!, hrv: hrvTextField.text!)
+        let newLog = Log(pulse: pulseCustomView.getText(), hrv: hrvCustomView.getText())
         
         updateLog?(newLog)
         dismissToLog()
@@ -29,15 +27,8 @@ class InfoHeartVC: UIViewController {
         
         title = "Information"
         
-        pulseTextFieldView.layer.cornerRadius = 16
-        pulseTextField.layer.cornerRadius = 16
-        pulseTextFieldView.layer.borderWidth = 0.5
-        pulseTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
-        
-        hrvTextFieldView.layer.cornerRadius = 16
-        hrvTextField.layer.cornerRadius = 16
-        hrvTextFieldView.layer.borderWidth = 0.5
-        hrvTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
+        pulseCustomView.configure(label: "Pulse", placeholder: "")
+        hrvCustomView.configure(label: "HRV", placeholder: "")
         
         addButtonOutlet.layer.cornerRadius = 16
         addButtonOutlet.backgroundColor = UIColor(named: "neutral3")
@@ -51,8 +42,8 @@ class InfoHeartVC: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "neutral2")
 
 
-        pulseTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        hrvTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        pulseCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        hrvCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
 
     }
     
@@ -61,8 +52,8 @@ class InfoHeartVC: UIViewController {
     }
     
     @objc func textFieldDidChange() {
-        let pulseEmpty = pulseTextField.text?.isEmpty ?? true
-        let hrvEmpty = hrvTextField.text?.isEmpty ?? true
+        let pulseEmpty = pulseCustomView.getText().isEmpty
+        let hrvEmpty = hrvCustomView.getText().isEmpty
         
         if !pulseEmpty && !hrvEmpty {
             addButtonOutlet.isEnabled = true

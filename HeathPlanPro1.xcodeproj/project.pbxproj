@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2CBA1AA02E1B72C8004D503F /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA1A9F2E1B72C8004D503F /* Profile.swift */; };
 		2CBA1AA22E1B8018004D503F /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA1AA12E1B8018004D503F /* ProfileManager.swift */; };
+		2CBA1C5A2E28F6A5004D503F /* CustomTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBA1C592E28F6A5004D503F /* CustomTextFieldView.xib */; };
+		2CBA1C5D2E28FEE1004D503F /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBA1C5C2E28FEE1004D503F /* CustomTextFieldView.swift */; };
 		8463F75E2E1829B200DF7EED /* PlanOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463F75C2E1829B200DF7EED /* PlanOptionVC.swift */; };
 		8463F75F2E1829B200DF7EED /* PlanOptionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8463F75D2E1829B200DF7EED /* PlanOptionVC.xib */; };
 		8463F7632E182B7A00DF7EED /* PlanOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463F7612E182B7A00DF7EED /* PlanOptionCell.swift */; };
@@ -29,7 +31,6 @@
 		84B8EE0F2E16DA11004F8D1B /* IssueOptionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8EE0D2E16DA11004F8D1B /* IssueOptionVC.xib */; };
 		84B8EE142E17D484004F8D1B /* IssueOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8EE122E17D484004F8D1B /* IssueOptionCell.swift */; };
 		84B8EE152E17D484004F8D1B /* IssueOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8EE132E17D484004F8D1B /* IssueOptionCell.xib */; };
-		84B8EE172E17EA45004F8D1B /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8EE162E17EA45004F8D1B /* Option.swift */; };
 		84B8EE1F2E17FCA7004F8D1B /* GoalOptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8EE1D2E17FCA7004F8D1B /* GoalOptionVC.swift */; };
 		84B8EE202E17FCA7004F8D1B /* GoalOptionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B8EE1E2E17FCA7004F8D1B /* GoalOptionVC.xib */; };
 		84B8EE242E181F2C004F8D1B /* GoalOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B8EE222E181F2C004F8D1B /* GoalOptionCell.swift */; };
@@ -51,6 +52,8 @@
 /* Begin PBXFileReference section */
 		2CBA1A9F2E1B72C8004D503F /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		2CBA1AA12E1B8018004D503F /* ProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		2CBA1C592E28F6A5004D503F /* CustomTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTextFieldView.xib; sourceTree = "<group>"; };
+		2CBA1C5C2E28FEE1004D503F /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 		8463F75C2E1829B200DF7EED /* PlanOptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionVC.swift; sourceTree = "<group>"; };
 		8463F75D2E1829B200DF7EED /* PlanOptionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanOptionVC.xib; sourceTree = "<group>"; };
 		8463F7612E182B7A00DF7EED /* PlanOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanOptionCell.swift; sourceTree = "<group>"; };
@@ -73,7 +76,6 @@
 		84B8EE0D2E16DA11004F8D1B /* IssueOptionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueOptionVC.xib; sourceTree = "<group>"; };
 		84B8EE122E17D484004F8D1B /* IssueOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueOptionCell.swift; sourceTree = "<group>"; };
 		84B8EE132E17D484004F8D1B /* IssueOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueOptionCell.xib; sourceTree = "<group>"; };
-		84B8EE162E17EA45004F8D1B /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		84B8EE1D2E17FCA7004F8D1B /* GoalOptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalOptionVC.swift; sourceTree = "<group>"; };
 		84B8EE1E2E17FCA7004F8D1B /* GoalOptionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalOptionVC.xib; sourceTree = "<group>"; };
 		84B8EE222E181F2C004F8D1B /* GoalOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalOptionCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,10 @@
 		84EE175D2E195C9000E7738C /* InfoHeartVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoHeartVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2CBA1CC22E31F3C5004D503F /* Intro */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Intro; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		84B8EDEA2E16C7DD004F8D1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -103,7 +109,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8463F7602E1829BA00DF7EED /* PlanOptionVC */ = {
+		2CBA1C5B2E28FBED004D503F /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				2CBA1C592E28F6A5004D503F /* CustomTextFieldView.xib */,
+				2CBA1C5C2E28FEE1004D503F /* CustomTextFieldView.swift */,
+			);
+			path = CustomTextField;
+			sourceTree = "<group>";
+		};
+		8463F7602E1829BA00DF7EED /* PlanOption */ = {
 			isa = PBXGroup;
 			children = (
 				8463F75C2E1829B200DF7EED /* PlanOptionVC.swift */,
@@ -111,29 +126,31 @@
 				8463F7612E182B7A00DF7EED /* PlanOptionCell.swift */,
 				8463F7622E182B7A00DF7EED /* PlanOptionCell.xib */,
 			);
-			path = PlanOptionVC;
+			path = PlanOption;
 			sourceTree = "<group>";
 		};
-		8463F7692E18329500DF7EED /* LogVC */ = {
+		8463F7692E18329500DF7EED /* Log */ = {
 			isa = PBXGroup;
 			children = (
 				8463F7652E18328500DF7EED /* LogVC.swift */,
 				8463F7662E18328500DF7EED /* LogVC.xib */,
 				84CDAC5E2E19775E008A7073 /* LogCell.swift */,
 				84CDAC5F2E19775E008A7073 /* LogCell.xib */,
+				84CDAC622E197EAD008A7073 /* Log.swift */,
 			);
-			path = LogVC;
+			path = Log;
 			sourceTree = "<group>";
 		};
-		8463F7732E19421300DF7EED /* SettingVC */ = {
+		8463F7732E19421300DF7EED /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				84CDAC682E1A854B008A7073 /* Setting.swift */,
 				8463F76F2E19420D00DF7EED /* SettingVC.swift */,
 				8463F7702E19420D00DF7EED /* SettingVC.xib */,
 				84CDAC642E1A7B9A008A7073 /* SettingCell.swift */,
 				84CDAC652E1A7B9A008A7073 /* SettingCell.xib */,
 			);
-			path = SettingVC;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		84B8EDE42E16C7DD004F8D1B = {
@@ -158,20 +175,17 @@
 				84B8EDF02E16C7DD004F8D1B /* AppDelegate.swift */,
 				84B8EDF22E16C7DD004F8D1B /* SceneDelegate.swift */,
 				84B8EDF42E16C7DD004F8D1B /* ViewController.swift */,
-				84B8EE162E17EA45004F8D1B /* Option.swift */,
-				84CDAC622E197EAD008A7073 /* Log.swift */,
-				84CDAC682E1A854B008A7073 /* Setting.swift */,
-				2CBA1A9F2E1B72C8004D503F /* Profile.swift */,
-				2CBA1AA12E1B8018004D503F /* ProfileManager.swift */,
-				84CDAC732E1AA10B008A7073 /* ProfileVC */,
-				84CDAC6E2E1A9640008A7073 /* InfoProfileVC */,
-				8463F7732E19421300DF7EED /* SettingVC */,
-				84EE17602E195C9800E7738C /* InfoHeartVC */,
-				8463F7692E18329500DF7EED /* LogVC */,
+				2CBA1C5B2E28FBED004D503F /* CustomTextField */,
+				84CDAC732E1AA10B008A7073 /* Profile */,
+				84CDAC6E2E1A9640008A7073 /* InfoProfile */,
+				8463F7732E19421300DF7EED /* Setting */,
+				84EE17602E195C9800E7738C /* InfoHeart */,
+				8463F7692E18329500DF7EED /* Log */,
 				84B8EE102E16DA28004F8D1B /* FirstPage */,
-				8463F7602E1829BA00DF7EED /* PlanOptionVC */,
-				84B8EE212E17FCAE004F8D1B /* GoalOptionVC */,
+				8463F7602E1829BA00DF7EED /* PlanOption */,
+				84B8EE212E17FCAE004F8D1B /* GoalOption */,
 				84B8EE112E16DA35004F8D1B /* IssueOption */,
+				2CBA1CC22E31F3C5004D503F /* Intro */,
 				84B8EDF92E16C7DE004F8D1B /* Assets.xcassets */,
 				84B8EDFB2E16C7DE004F8D1B /* LaunchScreen.storyboard */,
 				84B8EDF62E16C7DD004F8D1B /* Main.storyboard */,
@@ -200,7 +214,7 @@
 			path = IssueOption;
 			sourceTree = "<group>";
 		};
-		84B8EE212E17FCAE004F8D1B /* GoalOptionVC */ = {
+		84B8EE212E17FCAE004F8D1B /* GoalOption */ = {
 			isa = PBXGroup;
 			children = (
 				84B8EE1D2E17FCA7004F8D1B /* GoalOptionVC.swift */,
@@ -208,34 +222,36 @@
 				84B8EE222E181F2C004F8D1B /* GoalOptionCell.swift */,
 				84B8EE232E181F2C004F8D1B /* GoalOptionCell.xib */,
 			);
-			path = GoalOptionVC;
+			path = GoalOption;
 			sourceTree = "<group>";
 		};
-		84CDAC6E2E1A9640008A7073 /* InfoProfileVC */ = {
+		84CDAC6E2E1A9640008A7073 /* InfoProfile */ = {
 			isa = PBXGroup;
 			children = (
 				84CDAC6A2E1A963A008A7073 /* InfoProfileVC.swift */,
 				84CDAC6B2E1A963A008A7073 /* InfoProfileVC.xib */,
 			);
-			path = InfoProfileVC;
+			path = InfoProfile;
 			sourceTree = "<group>";
 		};
-		84CDAC732E1AA10B008A7073 /* ProfileVC */ = {
+		84CDAC732E1AA10B008A7073 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				84CDAC6F2E1AA105008A7073 /* ProfileVC.swift */,
 				84CDAC702E1AA105008A7073 /* ProfileVC.xib */,
+				2CBA1AA12E1B8018004D503F /* ProfileManager.swift */,
+				2CBA1A9F2E1B72C8004D503F /* Profile.swift */,
 			);
-			path = ProfileVC;
+			path = Profile;
 			sourceTree = "<group>";
 		};
-		84EE17602E195C9800E7738C /* InfoHeartVC */ = {
+		84EE17602E195C9800E7738C /* InfoHeart */ = {
 			isa = PBXGroup;
 			children = (
 				84EE175C2E195C9000E7738C /* InfoHeartVC.swift */,
 				84EE175D2E195C9000E7738C /* InfoHeartVC.xib */,
 			);
-			path = InfoHeartVC;
+			path = InfoHeart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +269,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				2CBA1CC22E31F3C5004D503F /* Intro */,
+			);
 			name = HeathPlanPro;
 			productName = HeathPlanPro;
 			productReference = 84B8EDED2E16C7DD004F8D1B /* HeathPlanPro.app */;
@@ -266,14 +285,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					84B8EDEC2E16C7DD004F8D1B = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = 84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro" */;
+			buildConfigurationList = 84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro1" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -310,6 +329,7 @@
 				84B8EE0B2E16D2EE004F8D1B /* FirstPageVC.xib in Resources */,
 				84B8EDF82E16C7DD004F8D1B /* Main.storyboard in Resources */,
 				84CDAC612E19775E008A7073 /* LogCell.xib in Resources */,
+				2CBA1C5A2E28F6A5004D503F /* CustomTextFieldView.xib in Resources */,
 				84B8EE252E181F2C004F8D1B /* GoalOptionCell.xib in Resources */,
 				8463F7642E182B7A00DF7EED /* PlanOptionCell.xib in Resources */,
 				84EE175F2E195C9000E7738C /* InfoHeartVC.xib in Resources */,
@@ -327,6 +347,7 @@
 				84CDAC662E1A7B9A008A7073 /* SettingCell.swift in Sources */,
 				84B8EDF52E16C7DD004F8D1B /* ViewController.swift in Sources */,
 				2CBA1AA22E1B8018004D503F /* ProfileManager.swift in Sources */,
+				2CBA1C5D2E28FEE1004D503F /* CustomTextFieldView.swift in Sources */,
 				8463F7712E19420D00DF7EED /* SettingVC.swift in Sources */,
 				8463F7672E18328500DF7EED /* LogVC.swift in Sources */,
 				84EE175E2E195C9000E7738C /* InfoHeartVC.swift in Sources */,
@@ -336,7 +357,6 @@
 				84CDAC692E1A854B008A7073 /* Setting.swift in Sources */,
 				2CBA1AA02E1B72C8004D503F /* Profile.swift in Sources */,
 				84B8EE1F2E17FCA7004F8D1B /* GoalOptionVC.swift in Sources */,
-				84B8EE172E17EA45004F8D1B /* Option.swift in Sources */,
 				84CDAC6C2E1A963A008A7073 /* InfoProfileVC.swift in Sources */,
 				84B8EE0A2E16D2EE004F8D1B /* FirstPageVC.swift in Sources */,
 				84B8EE0E2E16DA11004F8D1B /* IssueOptionVC.swift in Sources */,
@@ -406,6 +426,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -466,6 +487,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -541,7 +563,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro" */ = {
+		84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B8EDFF2E16C7DE004F8D1B /* Debug */,

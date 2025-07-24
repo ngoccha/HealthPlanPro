@@ -9,11 +9,11 @@ import UIKit
 
 class GoalOptionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var goals: [Option] = [
-        Option(name: "Improve Heart Health", imageName: "goal1", isSelected: false),
-        Option(name: "Improve blood pressure health", imageName: "goal2", isSelected: false),
-        Option(name: "Reduce Stress", imageName: "goal3", isSelected: false),
-        Option(name: "Increase Energy Levels", imageName: "goal4", isSelected: false)
+    var goals: [IntroOption] = [
+        IntroOption(name: "Improve Heart Health", imageName: "goal1", isSelected: false),
+        IntroOption(name: "Improve blood pressure health", imageName: "goal2", isSelected: false),
+        IntroOption(name: "Reduce Stress", imageName: "goal3", isSelected: false),
+        IntroOption(name: "Increase Energy Levels", imageName: "goal4", isSelected: false)
     ]
     
     @IBAction func continueButton(_ sender: UIButton) {
@@ -76,7 +76,7 @@ class GoalOptionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         goals[indexPath.row].isSelected.toggle()
         collectionView.reloadItems(at: [indexPath])
         
-        let isAnyItemSelected = goals.contains { (item: Option) -> Bool in
+        let isAnyItemSelected = goals.contains { (item: IntroOption) -> Bool in
             return item.isSelected
         }
 

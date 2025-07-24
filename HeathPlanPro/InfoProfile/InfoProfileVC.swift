@@ -9,18 +9,10 @@ import UIKit
 
 class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     
-    
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var firstNameTextFieldView: UIView!
-    
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextFieldView: UIView!
-    
-    @IBOutlet weak var weightTextField: UITextField!
-    @IBOutlet weak var weightTextFieldView: UIView!
-    
-    @IBOutlet weak var heightTextField: UITextField!
-    @IBOutlet weak var heightTextFieldView: UIView!
+    @IBOutlet weak var firstNameCustomView: CustomTextFieldView!
+    @IBOutlet weak var lastNameCustomView: CustomTextFieldView!
+    @IBOutlet weak var weightCustomView: CustomTextFieldView!
+    @IBOutlet weak var heightCustomView: CustomTextFieldView!
     
     @IBOutlet weak var genderSegment: UISegmentedControl!
     
@@ -36,11 +28,11 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func addButton(_ sender: UIButton) {
         
-        let heightCmtoM = Double(heightTextField.text!) ?? 0.0 / 100
-        let BMIValue = Double(weightTextField.text!) ?? 0.0 / pow(heightCmtoM, 2)
+        let heightCmtoM = Double(heightCustomView.getText()) ?? 0.0 / 100
+        let BMIValue = Double(weightCustomView.getText()) ?? 0.0 / pow(heightCmtoM, 2)
         
-        firstNameResult = firstNameTextField.text ?? ""
-        lastNameResult = lastNameTextField.text ?? ""
+        firstNameResult = firstNameCustomView.getText()
+        lastNameResult = lastNameCustomView.getText()
         
         var bmiResult: String {
             if BMIValue == 0 {
@@ -50,8 +42,8 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        weightResult = Int(weightTextField.text ?? "") ?? 0
-        heightResult = Int(heightTextField.text ?? "") ?? 0
+        weightResult = Int(weightCustomView.getText()) ?? 0
+        heightResult = Int(heightCustomView.getText()) ?? 0
         genderResult = genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!
         
         newProfile = Profile(firstName: firstNameResult, lastName: lastNameResult, bmi: bmiResult, weight: weightResult, height: heightResult, gender: genderResult)
@@ -71,21 +63,10 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         
         title = "Information"
         
-        firstNameTextFieldView.layer.cornerRadius = 16
-        firstNameTextFieldView.layer.borderWidth = 0.5
-        firstNameTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
-        
-        lastNameTextFieldView.layer.cornerRadius = 16
-        lastNameTextFieldView.layer.borderWidth = 0.5
-        lastNameTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
-        
-        weightTextFieldView.layer.cornerRadius = 16
-        weightTextFieldView.layer.borderWidth = 0.5
-        weightTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
-        
-        heightTextFieldView.layer.cornerRadius = 16
-        heightTextFieldView.layer.borderWidth = 0.5
-        heightTextFieldView.layer.borderColor = UIColor(named: "neutral4")?.cgColor
+        firstNameCustomView.configure(label: "First Name", placeholder: "Enter first name...")
+        lastNameCustomView.configure(label: "Last Name", placeholder: "Enter last name...")
+        weightCustomView.configure(label: "Weight", placeholder: "Enter weight...")
+        heightCustomView.configure(label: "Height", placeholder: "Enter height...")
         
         addButtonOutlet.layer.cornerRadius = 16
         addButtonOutlet.backgroundColor = UIColor(named: "neutral3")
@@ -101,18 +82,18 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         
         self.navigationController?.isNavigationBarHidden = false
 
-        firstNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        lastNameTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        weightTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        heightTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        firstNameCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        lastNameCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        weightCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        heightCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
 
    func loadCurrentProfile() {
             if let currentProfile = ProfileManager.shared.loadProfile() {
-                firstNameTextField.text = currentProfile.firstName
-                lastNameTextField.text = currentProfile.lastName
-                weightTextField.text = String(currentProfile.weight)
-                heightTextField.text = String(currentProfile.height)
+                firstNameCustomView.setText(currentProfile.firstName)
+                lastNameCustomView.setText(currentProfile.lastName)
+                weightCustomView.setText(String(currentProfile.weight))
+                heightCustomView.setText(String(currentProfile.height))
     
                 let gender = currentProfile.gender.lowercased()
                 if gender == "male" {
@@ -131,10 +112,10 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func textFieldDidChange() {
-        let firstNameEmpty = firstNameTextField.text?.isEmpty ?? true
-        let lastNameEmpty = lastNameTextField.text?.isEmpty ?? true
-        let weightNameEmpty = weightTextField.text?.isEmpty ?? true
-        let heightNameEmpty = heightTextField.text?.isEmpty ?? true
+        let firstNameEmpty = firstNameCustomView.getText().isEmpty
+        let lastNameEmpty = lastNameCustomView.getText().isEmpty
+        let weightNameEmpty = weightCustomView.getText().isEmpty
+        let heightNameEmpty = heightCustomView.getText().isEmpty
         
         if !firstNameEmpty && !lastNameEmpty && !weightNameEmpty && !heightNameEmpty {
             addButtonOutlet.isEnabled = true

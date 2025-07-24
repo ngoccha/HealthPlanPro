@@ -34,6 +34,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="labelpremium" translatesAutoresizingMaskIntoConstraints="NO" id="A99-eU-cWD">
                     <rect key="frame" x="16" y="179" width="361" height="110"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="361" id="C6k-qK-Hdt"/>
                         <constraint firstAttribute="height" constant="110" id="vfT-5R-xgw"/>
                     </constraints>
                 </imageView>

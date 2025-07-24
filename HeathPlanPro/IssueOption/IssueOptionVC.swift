@@ -9,13 +9,12 @@ import UIKit
 
 class IssueOptionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var issues: [Option] = [
-        Option(name: "Heart Rate", imageName: "issue1", isSelected: false),
-        Option(name: "High Blood Pressure", imageName: "issue2", isSelected: false),
-        Option(name: "Stress & Anxiety", imageName: "issue3", isSelected: false),
-        Option(name: "Low Energy Levels", imageName: "issue4", isSelected: false)
-    ]
-    
+    var issues: [IntroOption] = [
+        IntroOption(name: "Heart Rate", imageName: "issue1", isSelected: false),
+        IntroOption(name: "High Blood Pressure", imageName: "issue2", isSelected: false),
+        IntroOption(name: "Stress & Anxiety", imageName: "issue3", isSelected: false),
+        IntroOption(name: "Low Energy Levels", imageName: "issue4", isSelected: false)
+    ] 
     
     @IBAction func continueButton(_ sender: UIButton) {
         
@@ -34,9 +33,12 @@ class IssueOptionVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         continueButtonOutlet.layer.cornerRadius = 16
         continueButtonOutlet.backgroundColor = UIColor(named: "neutral3")
         
+        self.navigationItem.hidesBackButton = true
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
         issueOptionCollectionView.delegate = self
         issueOptionCollectionView.dataSource = self
-        
+
         issueOptionCollectionView.register(UINib(nibName: "IssueOptionCell", bundle: .main), forCellWithReuseIdentifier: "IssueOptionCell")
         
     }
@@ -74,7 +76,7 @@ class IssueOptionVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         issues[indexPath.row].isSelected.toggle()
         collectionView.reloadItems(at: [indexPath])
         
-        let isAnyItemSelected = issues.contains { (item: Option) -> Bool in
+        let isAnyItemSelected = issues.contains { (item: IntroOption) -> Bool in
             return item.isSelected
         }
 
@@ -87,3 +89,10 @@ class IssueOptionVC: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
 }
+
+extension IssueOptionVC: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+

@@ -9,10 +9,10 @@ import UIKit
 
 class PlanOptionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    var plans: [Option] = [
-        Option(name: "Educational Plan", imageName: "plan1", isSelected: false),
-        Option(name: "Exercise Plan", imageName: "plan2", isSelected: false),
-        Option(name: "Health Tests", imageName: "plan3", isSelected: false)
+    var plans: [IntroOption] = [
+        IntroOption(name: "Educational Plan", imageName: "plan1", isSelected: false),
+        IntroOption(name: "Exercise Plan", imageName: "plan2", isSelected: false),
+        IntroOption(name: "Health Tests", imageName: "plan3", isSelected: false)
     ]
 
     @IBAction func continueButton(_ sender: UIButton) {
@@ -93,7 +93,7 @@ class PlanOptionVC: UIViewController, UICollectionViewDelegate, UICollectionView
         plans[indexPath.row].isSelected.toggle()
         collectionView.reloadItems(at: [indexPath])
         
-        let isAnyItemSelected = plans.contains { (item: Option) -> Bool in
+        let isAnyItemSelected = plans.contains { (item: IntroOption) -> Bool in
             return item.isSelected
         }
 
