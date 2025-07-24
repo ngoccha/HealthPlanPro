@@ -9,9 +9,11 @@ import UIKit
 
 class IntroParentCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var options: [IntroOption] = []
+    private var options: [IntroOption] = []
     var selectedOptionIndices: [Int] = []
     var onSelectionChanged: (([Int]) -> Void)?
+    private let numberOfItemsPerRow: CGFloat = 2
+    private let spacing: CGFloat = 16
 
     @IBOutlet weak var parentCollectionView: UICollectionView!
     
@@ -20,6 +22,10 @@ class IntroParentCell: UICollectionViewCell, UICollectionViewDataSource, UIColle
         
         parentCollectionView.delegate = self
         parentCollectionView.dataSource = self
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 32 - spacing * (numberOfItemsPerRow - 1)) / numberOfItemsPerRow, height: 195)
+        parentCollectionView.collectionViewLayout = layout
         
         parentCollectionView.register(UINib(nibName: "IntroChildCell", bundle: nil), forCellWithReuseIdentifier: "IntroChildCell")
         parentCollectionView.allowsMultipleSelection = true

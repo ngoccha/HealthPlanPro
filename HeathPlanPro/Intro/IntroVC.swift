@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IntroVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
+class IntroVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var parentCollectionView: UICollectionView!
@@ -76,6 +76,11 @@ class IntroVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         parentCollectionView.delegate = self
         parentCollectionView.dataSource = self
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 32, height: 406)
+        parentCollectionView.collectionViewLayout = layout
+        
         parentCollectionView.register(UINib(nibName: "IntroParentCell", bundle: nil), forCellWithReuseIdentifier: "IntroParentCell")
         
     }
@@ -100,5 +105,6 @@ class IntroVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         }
         return cell
     }
+     
     
 }

@@ -40,12 +40,11 @@
                         <action selector="continueButtonTapped:" destination="-1" eventType="touchUpInside" id="5ET-ID-1vA"/>
                     </connections>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-BU-UVa">
-                    <rect key="frame" x="16" y="224.33333333333337" width="361" height="406"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="EyM-BU-UVa">
+                    <rect key="frame" x="16" y="225.33333333333337" width="361" height="406"/>
                     <color key="backgroundColor" name="background"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="406" id="N7p-XP-6rc"/>
-                        <constraint firstAttribute="width" constant="361" id="cbf-gQ-Q3R"/>
+                        <constraint firstAttribute="height" constant="406" id="Ocs-IF-unk"/>
                     </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="16" id="hvb-xj-0a6">
                         <size key="itemSize" width="361" height="406"/>
@@ -59,12 +58,12 @@
             <color key="backgroundColor" name="background"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="dRY-gH-2zU" secondAttribute="bottom" constant="16" id="9HB-Qe-GEz"/>
-                <constraint firstItem="EyM-BU-UVa" firstAttribute="top" secondItem="Hgl-CD-AEb" secondAttribute="bottom" constant="23" id="BW2-Og-GU6"/>
                 <constraint firstItem="Hgl-CD-AEb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="21" id="FcE-k6-9dy"/>
                 <constraint firstItem="EyM-BU-UVa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Lcr-7v-0cY"/>
                 <constraint firstItem="Hgl-CD-AEb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="Vv6-iw-gf9"/>
                 <constraint firstItem="EyM-BU-UVa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kyB-yS-tfs"/>
                 <constraint firstItem="dRY-gH-2zU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="n7d-FF-za8"/>
+                <constraint firstItem="EyM-BU-UVa" firstAttribute="top" secondItem="Hgl-CD-AEb" secondAttribute="bottom" constant="24" id="qIr-jw-xjx"/>
                 <constraint firstItem="dRY-gH-2zU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sbL-Zg-o7L"/>
                 <constraint firstItem="Hgl-CD-AEb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="vKy-UM-g83"/>
             </constraints>
