@@ -292,7 +292,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro1" */;
+			buildConfigurationList = 84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -563,7 +563,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro1" */ = {
+		84B8EDE82E16C7DD004F8D1B /* Build configuration list for PBXProject "HeathPlanPro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84B8EDFF2E16C7DE004F8D1B /* Debug */,
