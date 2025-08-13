@@ -29,7 +29,7 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     var genderResult: String = ""
     
     var isEnabled: Bool {
-        !(heightCustomView.getText() == "" || weightCustomView.getText() == "") && !(Double(heightCustomView.getText()) == nil || Double(weightCustomView.getText()) == nil)
+        !(Double(heightCustomView.getText()) == nil || Double(weightCustomView.getText()) == nil)
     }
     
     @IBAction func addButton(_ sender: UIButton) {
