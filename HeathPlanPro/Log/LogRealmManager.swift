@@ -44,14 +44,4 @@ final class LogRealmManager {
             print("Error deleting object: \(error)")
         }
     }
-    
-    func update(_ block: () -> Void) {
-        do {
-            try realm.write {
-                block()
-            }
-        } catch {
-            print("Error updating object: \(error)")
-        }
-    }
 }
