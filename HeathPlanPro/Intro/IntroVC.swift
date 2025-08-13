@@ -70,6 +70,11 @@ class IntroVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
         continueButton.layer.cornerRadius = 16
         continueButton.backgroundColor = UIColor(named: "neutral3")
         
+        let disabledTitle = NSAttributedString(string: "Continue", attributes: [
+            .foregroundColor: UIColor.white
+        ])
+        continueButton.setAttributedTitle(disabledTitle, for: .disabled)
+        
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         

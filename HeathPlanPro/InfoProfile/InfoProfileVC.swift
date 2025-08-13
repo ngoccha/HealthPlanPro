@@ -28,6 +28,10 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     var heightResult: Int = 0
     var genderResult: String = ""
     
+    var isEnabled: Bool {
+        !(heightCustomView.getText() == "" || weightCustomView.getText() == "") && !(Double(heightCustomView.getText()) == nil || Double(weightCustomView.getText()) == nil)
+    }
+    
     @IBAction func addButton(_ sender: UIButton) {
         
         let heightCmtoM = Double(heightCustomView.getText()) ?? 0.0 / 100
@@ -136,7 +140,7 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         let weightNameEmpty = weightCustomView.getText().isEmpty
         let heightNameEmpty = heightCustomView.getText().isEmpty
         
-        if !firstNameEmpty && !lastNameEmpty && !weightNameEmpty && !heightNameEmpty {
+        if !firstNameEmpty && !lastNameEmpty && !weightNameEmpty && !heightNameEmpty && isEnabled {
             addButtonOutlet.isEnabled = true
             addButtonOutlet.backgroundColor = UIColor(named: "primary")
         } else {
