@@ -49,7 +49,6 @@ class ProfileVC: UIViewController, UIGestureRecognizerDelegate {
     
     func loadProfile() {
         let realmProfiles = ProfileRealmManager.shared.getAll(Profile.self)
-//        profile = Profile(value: realmProfiles)
         if let firstProfile = realmProfiles.first {
             profile = firstProfile
             fullNameLabel.text = firstProfile.fullName

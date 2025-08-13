@@ -30,7 +30,6 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
-//        self.tabBarController?.tabBar.isHidden = false
         
         settingTableView.register(UINib(nibName: "SettingCell", bundle: nil), forCellReuseIdentifier: "SettingCell")
 
