@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -127,7 +128,8 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
     @objc func goToProfile() {
-        if ProfileManager.shared.hasProfile() {
+        let realmProfile = ProfileRealmManager.shared.getAll(Profile.self)
+        if !realmProfile.isEmpty {
             let profileVC = ProfileVC()
             profileVC.hidesBottomBarWhenPushed = true
             navigationController?.pushViewController(profileVC, animated: true)

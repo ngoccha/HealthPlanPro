@@ -6,21 +6,29 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InfoHeartVC: UIViewController {
+    
+    var isEnabled: Bool {
+        !(pulseCustomView.getText() == "" || hrvCustomView.getText() == "") && !(Double(pulseCustomView.getText()) == nil || Double(hrvCustomView.getText()) == nil)
+    }
     
     @IBOutlet weak var pulseCustomView: CustomTextFieldView!
     @IBOutlet weak var hrvCustomView: CustomTextFieldView!
     
     @IBOutlet weak var addButtonOutlet: UIButton!
     @IBAction func addButton() {
-        let newLog = Log(pulse: pulseCustomView.getText(), hrv: hrvCustomView.getText())
-        
-        updateLog?(newLog)
+        let newLog = Log()
+        newLog.pulse = pulseCustomView.getText()
+        newLog.hrv = hrvCustomView.getText()
+        LogRealmManager.shared.add(newLog)
+
+//        updateLog?(newLog)
         dismissToLog()
     }
     
-    var updateLog: ((Log) -> Void)?
+//    var updateLog: ((Log) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +49,8 @@ class InfoHeartVC: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), landscapeImagePhone: nil, style: .done, target: self, action: #selector(dismissToLog))
         self.navigationController?.navigationBar.tintColor = UIColor(named: "neutral2")
 
-
         pulseCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         hrvCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-
     }
     
     @objc func dismissToLog() {
@@ -52,17 +58,13 @@ class InfoHeartVC: UIViewController {
     }
     
     @objc func textFieldDidChange() {
-        let pulseEmpty = pulseCustomView.getText().isEmpty
-        let hrvEmpty = hrvCustomView.getText().isEmpty
+        addButtonOutlet.isEnabled = isEnabled
         
-        if !pulseEmpty && !hrvEmpty {
-            addButtonOutlet.isEnabled = true
+        if isEnabled {
             addButtonOutlet.backgroundColor = UIColor(named: "primary")
         } else {
-            addButtonOutlet.isEnabled = false
             addButtonOutlet.backgroundColor = UIColor(named: "neutral3")
             addButtonOutlet.tintColor = .white
-
         }
     }
 }

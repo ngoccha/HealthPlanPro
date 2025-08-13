@@ -5,14 +5,15 @@
 //  Created by iKame Elite Fresher 2025 on 7/7/25.
 //
 
+import RealmSwift
 
-struct Profile: Encodable, Decodable {
-    var firstName: String
-    var lastName: String
-    var bmi: String
-    var weight: Int
-    var height: Int
-    var gender: String
+class Profile: Object, Encodable, Decodable {
+    @Persisted var firstName: String
+    @Persisted var lastName: String
+    @Persisted var bmi: String
+    @Persisted var weight: Int
+    @Persisted var height: Int
+    @Persisted var gender: String
     
     var fullName: String {
         return "\(firstName) \(lastName)"

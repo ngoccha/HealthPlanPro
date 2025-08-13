@@ -1,0 +1,6 @@
+framework module Pods_HeathPlanPro {
+  umbrella header "Pods-HeathPlanPro-umbrella.h"
+
+  export *
+  module * { export * }
+}

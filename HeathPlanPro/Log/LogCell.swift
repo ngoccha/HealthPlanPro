@@ -62,6 +62,7 @@ class LogCell: UITableViewCell {
             hrvLogLabel.textColor = UIColor(named: "neutral21")
             bpmHrvLabel.textColor = UIColor(named: "neutral21")
             statusLogLabel.text = "--"
+            statusLogLabel.textColor = UIColor(named: "neutral21")
         }
     }
     

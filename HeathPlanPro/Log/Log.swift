@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Log {
-    var pulse: String
-    var hrv: String
+class Log: Object {
+    @Persisted var pulse: String
+    @Persisted var hrv: String
 }

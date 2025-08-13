@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     
@@ -18,7 +19,8 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var addButtonOutlet: UIButton!
     
-    var newProfile: Profile?
+    var profile: Profile?
+    let realmProfile = ProfileRealmManager.shared.getAll(Profile.self)
     var firstNameResult: String = ""
     var lastNameResult: String = ""
     var bmiResult: String = ""
@@ -46,19 +48,33 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         heightResult = Int(heightCustomView.getText()) ?? 0
         genderResult = genderSegment.titleForSegment(at: genderSegment.selectedSegmentIndex)!
         
-        newProfile = Profile(firstName: firstNameResult, lastName: lastNameResult, bmi: bmiResult, weight: weightResult, height: heightResult, gender: genderResult)
+        let updatedProfile = Profile()
+        updatedProfile.firstName = firstNameResult
+        updatedProfile.lastName = lastNameResult
+        updatedProfile.bmi = bmiResult
+        updatedProfile.weight = weightResult
+        updatedProfile.height = heightResult
+        updatedProfile.gender = genderResult
         
-        ProfileManager.shared.saveProfile(newProfile!)
-
-        cancel()
+        if realmProfile.first != nil {
+            ProfileRealmManager.shared.update(updatedProfile)
+        } else {
+            ProfileRealmManager.shared.add(updatedProfile)
+        }
+        goToProfile()
     }
     
     
-    var onChangeResult: ((Profile) -> Void)?
+    //    var onChangeResult: ((Profile) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let existingProfile = realmProfile.first {
+            profile = existingProfile
+        } else {
+            profile = Profile()
+        }
         loadCurrentProfile()
         
         title = "Information"
@@ -72,8 +88,8 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         addButtonOutlet.backgroundColor = UIColor(named: "neutral3")
         
         let disabledTitle = NSAttributedString(string: "Update", attributes: [
-                .foregroundColor: UIColor.white
-            ])
+            .foregroundColor: UIColor.white
+        ])
         addButtonOutlet.setAttributedTitle(disabledTitle, for: .disabled)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Left"), style: .plain, target: self, action: #selector(cancel))
@@ -81,34 +97,37 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         self.navigationController?.navigationBar.tintColor = UIColor(named: "neutral2")
         
         self.navigationController?.isNavigationBarHidden = false
-
+        
         firstNameCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         lastNameCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         weightCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         heightCustomView.customTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
-
-   func loadCurrentProfile() {
-            if let currentProfile = ProfileManager.shared.loadProfile() {
-                firstNameCustomView.setText(currentProfile.firstName)
-                lastNameCustomView.setText(currentProfile.lastName)
-                weightCustomView.setText(String(currentProfile.weight))
-                heightCustomView.setText(String(currentProfile.height))
     
-                let gender = currentProfile.gender.lowercased()
-                if gender == "male" {
-                    genderSegment.selectedSegmentIndex = 0
-                } else if gender == "female" {
-                    genderSegment.selectedSegmentIndex = 1
-                }
-                textFieldDidChange()
+    func loadCurrentProfile() {
+        if let currentProfile = profile {
+            firstNameCustomView.setText(currentProfile.firstName)
+            lastNameCustomView.setText(currentProfile.lastName)
+            weightCustomView.setText(String(currentProfile.weight))
+            heightCustomView.setText(String(currentProfile.height))
+            
+            let gender = currentProfile.gender.lowercased()
+            if gender == "male" {
+                genderSegment.selectedSegmentIndex = 0
+            } else if gender == "female" {
+                genderSegment.selectedSegmentIndex = 1
             }
+            textFieldDidChange()
         }
+    }
+    
+    func goToProfile() {
+        let profileVC = ProfileVC()
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
     
     @objc func cancel() {
-        let profileVC = ProfileVC()
-
-        navigationController?.pushViewController(profileVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func textFieldDidChange() {
@@ -123,7 +142,7 @@ class InfoProfileVC: UIViewController, UIGestureRecognizerDelegate {
         } else {
             addButtonOutlet.isEnabled = false
             addButtonOutlet.backgroundColor = UIColor(named: "neutral3")
-
+            
         }
     }
 }

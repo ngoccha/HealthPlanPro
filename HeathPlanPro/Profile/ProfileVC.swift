@@ -48,13 +48,15 @@ class ProfileVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func loadProfile() {
-        if let loadedProfile = ProfileManager.shared.loadProfile() {
-                    profile = loadedProfile
-                    fullNameLabel.text = loadedProfile.fullName
-                    bmiLabel.text = loadedProfile.bmi
-                    weightLabel.text = "\(loadedProfile.weight) kg"
-                    heightLabel.text = "\(loadedProfile.height) cm"
-                    genderLabel.text = loadedProfile.gender
+        let realmProfiles = ProfileRealmManager.shared.getAll(Profile.self)
+//        profile = Profile(value: realmProfiles)
+        if let firstProfile = realmProfiles.first {
+            profile = firstProfile
+            fullNameLabel.text = firstProfile.fullName
+            bmiLabel.text = firstProfile.bmi
+            weightLabel.text = "\(firstProfile.weight) kg"
+            heightLabel.text = "\(firstProfile.height) cm"
+            genderLabel.text = firstProfile.gender
         }
     }
     @objc func backtoSetting() {

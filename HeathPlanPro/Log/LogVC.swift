@@ -6,29 +6,42 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var logs: [Log] = [Log(pulse: "--", hrv: "--")]
+    var logs: [Log] = []
+    var newLog = Log()
+    var realmLogs: Results<Log>!
     
     @IBAction func logHeartButton(_ sender: UIButton) {
         let infoHeartVC = InfoHeartVC()
         
-        infoHeartVC.updateLog = { [weak self] newLog in
-            guard let self = self else { return }
-            
-            if self.logs.count == 1 && self.logs.first?.pulse == "--" && self.logs.first?.hrv == "--" {
-                self.logs.removeAll()
-            }
-            
-            if (Int(newLog.hrv) == nil || Int(newLog.pulse) == nil) {
-                return
-            } else {
-                self.logs.append(newLog)
-            }
-            self.logTableView.reloadData()
-            self.hiddenTrackDailyView()
-        }
+        //        let realm = try! Realm()
+        //        realmLogs = realm.objects(Log.self)
+        
+        //        infoHeartVC.updateLog = { [weak self] newLog in
+        //            guard let self = self else { return }
+        
+        //        if self.logs.count == 1 && self.logs.first?.pulse == "--" && self.logs.first?.hrv == "--" {
+        //            self.logs.removeAll()
+        //        }
+        //
+        //        if (Int(newLog.hrv) == nil || Int(newLog.pulse) == nil) {
+        //            return
+        //        }
+        //        else {
+        //            logs = Array(realmLogs)
+        //        }
+        //        logs = Array(realmLogs)
+        //
+        //        self.logTableView.reloadData()
+        //
+        //        if !logs.isEmpty {
+        //            trackDailyView.isHidden = true
+        //        }
+        //        self.hiddenTrackDailyView()
+        //        }
         
         let navVC = UINavigationController(rootViewController: infoHeartVC)
         navVC.modalPresentationStyle = .fullScreen
@@ -40,6 +53,10 @@ class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var trackDailyView: UIView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        defaultLog()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,10 +64,21 @@ class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         self.navigationController?.isNavigationBarHidden = true
         
+        
         logTableView.register(UINib(nibName: "LogCell", bundle: nil), forCellReuseIdentifier: "LogCell")
         
         logTableView.delegate = self
         logTableView.dataSource = self
+        
+        //        let realm = try! Realm()
+        //        realmLogs = realm.objects(Log.self)
+        
+        realmLogs = LogRealmManager.shared.getAll(Log.self)
+        defaultLog()
+        self.logTableView.reloadData()
+        
+        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
     
@@ -71,11 +99,48 @@ class LogVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func hiddenTrackDailyView() {
-        if self.logs.count == 1 && self.logs.first?.pulse == "--" && self.logs.first?.hrv == "--" {
-            self.logs.removeAll()
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        // Create the delete action
+        if !(self.logs.first?.pulse == "--") {
+            let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completionHandler in
+                //            let item = self?.logs[indexPath.row]
+                let deletedItem = self?.logs.remove(at: indexPath.row)
+                LogRealmManager.shared.delete(deletedItem!)
+                if ((self?.logs.isEmpty) != nil) {
+                    self?.defaultLog()
+                } else {
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                completionHandler(true)
+            }
+            
+            // Customize appearance
+            deleteAction.backgroundColor = .background
+            deleteAction.image = UIImage(systemName: "trash.fill")?.withTintColor(.primary, renderingMode: .alwaysOriginal)
+            
+            // Return the configuration
+            let config = UISwipeActionsConfiguration(actions: [deleteAction])
+            config.performsFirstActionWithFullSwipe = true
+            return config
+        } else { return nil }
+    }
+    
+    
+    func defaultLog () {
+        logs = Array(realmLogs)
+        
+        if logs.isEmpty {
+            let defaultLog = Log()
+            defaultLog.pulse = "--"
+            defaultLog.hrv = "--"
+            logs = [defaultLog]
+            trackDailyView.isHidden = false
+        } else {
             trackDailyView.isHidden = true
         }
         
+        logTableView.reloadData()
     }
 }
